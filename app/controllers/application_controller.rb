@@ -17,11 +17,6 @@ class ApplicationController < ActionController::API
         rescue JWT::DecodeError => e
             render json: {errors: e.message}, status: :unauthorized
         end
-        def current_user
-            return unless request.headers.include? "Authorization"
-          
-            @current_user ||= User.find(payload['user_id'])
-          end
           
     end
 end
