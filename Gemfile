@@ -22,7 +22,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem "jwt", "~> 2.5"
 
-gem "faker", "~> 2.23"
+# gem "faker", "~> 2.23"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
