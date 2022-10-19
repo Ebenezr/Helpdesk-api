@@ -7,6 +7,7 @@ class User < ApplicationRecord
     end
 
     validates :first_name, :last_name, :email, presence: true
+    validates :username, presence: true, uniqueness: true
     #validates email
     validates :email, presence: true, uniqueness: true
     validates :email, format: {with: URI::MailTo::EMAIL_REGEXP}
