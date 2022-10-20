@@ -1,4 +1,5 @@
 
+
 puts "Creating tags..."
 
 code = Tag.create(name:'Code')
@@ -18,3 +19,4 @@ quiz4 = Quiz.create(title: "Quiz 4", description: "This is quiz 4", user_id: 1, 
 quiz5 = Quiz.create(title: "Quiz 5", description: "This is quiz 5", user_id: 1, votes:3)
 
 puts "Seeding done!"
+
