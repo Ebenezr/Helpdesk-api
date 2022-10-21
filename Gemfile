@@ -22,6 +22,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem "jwt", "~> 2.5"
 
+gem 'active_model_serializers'
+
 # gem "faker", "~> 2.23"
 
 group :development, :test do
