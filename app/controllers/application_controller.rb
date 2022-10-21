@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
         header = header.split('').last if header
         begin
             @decoded = JsonWebToken.decode(header)
-            @current_user = User.find(@decoded[:user_id])
+            @user = User.find(@decoded[:user_id])
             
         rescue ActiveRecord::RecordNotFound => e
             render json: { errors: e.message }, status: :unauthorized
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::API
           
     end
 
-     private
+    private
 
      def render_unprocessable_entity_response(exception)
         render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
