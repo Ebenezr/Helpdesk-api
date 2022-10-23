@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   
+
     before_validation :downcase_email
 
     def downcase_email
