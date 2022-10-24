@@ -3,4 +3,5 @@ class QuestionSerializer < ActiveModel::Serializer
 
   belongs_to :user
   has_many :solutions
+  has_many :tags
 end
