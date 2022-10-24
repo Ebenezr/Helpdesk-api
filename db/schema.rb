@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_24_075632) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_24_101050) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,6 +62,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_075632) do
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
+  create_table "questions_tags", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_questions_tags_on_question_id"
+    t.index ["tag_id"], name: "index_questions_tags_on_tag_id"
+  end
+
   create_table "solutions", force: :cascade do |t|
     t.string "description"
     t.integer "votes"
@@ -92,4 +102,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_075632) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookmarks", "questions"
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "questions_tags", "questions"
+  add_foreign_key "questions_tags", "tags"
+
 end

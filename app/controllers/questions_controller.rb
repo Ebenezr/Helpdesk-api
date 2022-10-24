@@ -3,9 +3,12 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: %i[ show update destroy ]
 
     # GET /questions
+    #GET/questions?page=page no.
     def index
-      @questions = Question.all
-      render json: @questions
+      @questions = Question.paginate(page: params[:page], per_page: 5)
+      total = Question.count
+    
+      render json: {  questions: ActiveModelSerializers::SerializableResource.new(@questions, each_serializer: QuestionSerializer), count:total}
     end
 
     # GET /questions/1
