@@ -2,11 +2,11 @@ class BookmarksController < ApplicationController
   before_action :set_bookmark, only: %i[ show update destroy ]
   before_action :authorize
 
-     #return loged in user's appoinments
-    def mybookmarks
-        bookmarks = Bookmark.where("user_id = ?", @user.id)
-        render json: bookmarks
-    end
+  #return loged in user's appoinments
+  def mybookmarks
+      bookmarks = Bookmark.where("user_id = ?", @user.id)
+      render json: bookmarks
+  end
 
   # GET /bookmarks
   def index
