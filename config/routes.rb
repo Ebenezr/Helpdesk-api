@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  # resources :bookmarks
-
    resources :questions_tags
    resources :bookmarks,  only: [:create, :update, :destroy]
    resources :questions, only: [:index, :show, :create, :update, :destroy]

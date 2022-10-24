@@ -38,3 +38,4 @@ soln4 = Solution.create(question_id: 2, user_id:1, votes: 52, description: 'Helo
 soln5 = Solution.create(question_id: 3, user_id:2, votes: 2, description: 'Try this...')
 
 puts "Seeding done!"
+
