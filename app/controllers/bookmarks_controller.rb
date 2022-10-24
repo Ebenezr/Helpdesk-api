@@ -1,6 +1,13 @@
 class BookmarksController < ApplicationController
   before_action :set_bookmark, only: %i[ show update destroy ]
-  before_action :authorize_request
+  before_action :authorize
+
+     #return loged in user's appoinments
+    def mybookmarks
+        bookmarks = Bookmark.where("user_id = ?", @user.id)
+        render json: bookmarks
+    end
+
   # GET /bookmarks
   def index
     @bookmarks = Bookmark.all
@@ -13,10 +20,8 @@ class BookmarksController < ApplicationController
   end
 
   # POST /bookmarks
-  def build
-    @question = Question.find(params[:question_id])
-    @current_user = @user
-    @bookmark = @question.users << @current_user
+  def create
+    @bookmark= Bookmark.create!(bookmark_params.merge(user: @user))
     render json: @bookmark, status: :created
   end
 
@@ -40,6 +45,6 @@ class BookmarksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bookmark_params
-      params.require(:question).permit(:question_id)
+      params.require(:bookmark).permit(:question_id)
     end
 end
