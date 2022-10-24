@@ -1,3 +1,5 @@
+require "./test/test_helper"
+
 class QuestionsControllerTest < ActionDispatch::IntegrationTest
     # test "the truth" do
     #   assert true
@@ -38,7 +40,7 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
         assert_response 204
     end
 
-    
+
     
 end
 
