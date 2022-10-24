@@ -42,6 +42,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_101050) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_bookmarks_on_question_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
@@ -49,6 +58,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_101050) do
     t.integer "votes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_questions_on_user_id"
+  end
+
+  create_table "questions_tags", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_questions_tags_on_question_id"
+    t.index ["tag_id"], name: "index_questions_tags_on_tag_id"
   end
 
   create_table "questions_tags", force: :cascade do |t|
@@ -67,6 +86,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_101050) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "question_id"
+    t.index ["question_id"], name: "index_solutions_on_question_id"
+    t.index ["user_id"], name: "index_solutions_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -87,6 +108,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_101050) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "questions_tags", "questions"
+  add_foreign_key "questions_tags", "tags"
+  add_foreign_key "bookmarks", "questions"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "questions_tags", "questions"
   add_foreign_key "questions_tags", "tags"
 end
