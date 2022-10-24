@@ -3,6 +3,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: %i[ show update destroy ]
 
     # GET /questions
+    #GET/questions?page=page no.
     def index
       @questions = Question.paginate(page: params[:page], per_page: 2)
       render json: @questions
