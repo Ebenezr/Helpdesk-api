@@ -5,7 +5,6 @@ class QuestionsController < ApplicationController
     # GET /questions
     def index
       @questions = Question.all
-
       render json: @questions
     end
 
@@ -54,6 +53,5 @@ class QuestionsController < ApplicationController
         render json: { error: "Question not found" }, status: :not_found
       end
 
-    
 end
 
