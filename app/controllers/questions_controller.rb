@@ -11,6 +11,15 @@ class QuestionsController < ApplicationController
       render json: {  questions: ActiveModelSerializers::SerializableResource.new(@questions, each_serializer: QuestionSerializer), count:total}
     end
 
+    #search for questions
+    def search
+      @results = Question.paginate(page: params[:page], per_page: 3)
+      term = params[:search_term]
+      @results = Question.where("lower(title) LIKE ?", "%#{term.downcase}%")
+      render json: {questions: ActiveModelSerializers::SerializableResource.new(@results, each_serializer: QuestionSerializer)}, status: :ok
+    end
+
+
     # GET /questions/1
     def show
       render json: @question

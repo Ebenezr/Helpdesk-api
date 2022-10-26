@@ -8,5 +8,7 @@ Rails.application.routes.draw do
    post '/auth/login', to: 'authentication#login' 
   #  return loged in users bookmarks
    get '/mybookmarks', to: "bookmarks#mybookmarks"
+   #search for questions
+   get '/search/:search_term', to: "questions#search"
 
 end
