@@ -21,8 +21,4 @@ RSpec.describe Tag, type: :model do
     t = Tag.reflect_on_association(:questions)
     expect(t.macro).to eq(:has_and_belongs_to_many)
   end
-
- 
-
-
 end
