@@ -6,6 +6,8 @@ class TagsController < ApplicationController
         @tags = Tag.all 
         render json: @tags, status: :ok
     end
+
+   
     
     def show
         render json: @tag, status: :ok

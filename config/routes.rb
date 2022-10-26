@@ -10,6 +10,7 @@ Rails.application.routes.draw do
    get '/mybookmarks', to: "bookmarks#mybookmarks"
    get '/mysolutions', to: "solutions#mysolutions"
    get '/myquestions', to: "questions#myquestions"
+    get '/mytags', to: "questions_tags#mytags"
    #search for questions
    get '/search/:search_term', to: "questions#search"
 
