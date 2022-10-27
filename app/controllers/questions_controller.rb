@@ -3,10 +3,12 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: %i[ show update destroy ]
 
     # GET /questions
+    #GET/questions?page=page no.
     def index
-      @questions = Question.paginate(page: params[:page], per_page: 5)
+      @questions = Question.paginate(page: params[:page], per_page: 3)
+      #count total questions in database 
       total = Question.count
-    
+      #return object with total questions and questions array
       render json: {  questions: ActiveModelSerializers::SerializableResource.new(@questions, each_serializer: QuestionSerializer), count:total}
     end
 
@@ -17,22 +19,16 @@ class QuestionsController < ApplicationController
 
     # POST /questions
     def create
-      @question = Question.new(question_params)
-
-      if @question.save
-        render json: @question, status: :created, location: @question
-      else
-        render json: @question.errors, status: :unprocessable_entity
-      end
+      @question = Question.create!(question_params)
+      render json: @question, status: :created, location: @question
+      
     end
 
     # PATCH/PUT /questions/1
     def update
-      if @question.update(question_params)
-        render json: @question
-      else
-        render json: @question.errors, status: :unprocessable_entity
-      end
+      @question = @question.update!(question_params)
+      render json: @question
+   
     end
 
     # DELETE /questions/1

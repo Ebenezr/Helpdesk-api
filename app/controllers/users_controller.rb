@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-    # before_action :authorize_request, except: :create
+    before_action :authorize_request, except: :create
     before_action :find_user, except: [:create, :index]
 
 
@@ -16,7 +16,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create!(user_params)
-    render json: @user, status: :created
+    token = encode_token({user_id: @user.id})
+    render json: {user: @user, token: token}, status: :created
   end
 
 
