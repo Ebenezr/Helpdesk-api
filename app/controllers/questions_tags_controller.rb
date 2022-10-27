@@ -1,11 +1,18 @@
 class QuestionsTagsController < ApplicationController
   before_action :set_questions_tag, only: %i[ show update destroy ]
+  before_action :authorize,except: [:index]
 
   # GET /questions_tags
   def index
     @questions_tags = QuestionsTag.all
 
     render json: @questions_tags
+  end
+
+    #return loged in user's tags
+  def mytags
+      tags = QuestionsTag.where("user_id = ?", @user.id)
+      render json: tags
   end
 
   # GET /questions_tags/1
@@ -15,7 +22,7 @@ class QuestionsTagsController < ApplicationController
 
   # POST /questions_tags
   def create
-    @questions_tag = QuestionsTag.new(questions_tag_params)
+    @questions_tag = QuestionsTag.new(questions_tag_params.merge(user: @user))
 
     if @questions_tag.save
       render json: @questions_tag, status: :created, location: @questions_tag

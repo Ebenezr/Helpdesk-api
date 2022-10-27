@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   before_action :set_question, only: %i[ show update destroy ]
+  before_action :authorize,except: [:index]
 
     # GET /questions
     #GET/questions?page=page no.
@@ -10,6 +11,12 @@ class QuestionsController < ApplicationController
       #return object with total questions and questions array
       render json: {  questions: ActiveModelSerializers::SerializableResource.new(@questions, each_serializer: QuestionSerializer), count:total}
     end
+
+      #return loged in user's questions
+      def myquestions
+          questions = Question.where("user_id = ?", @user.id)
+          render json: questions
+      end
 
     #search for questions
     def search

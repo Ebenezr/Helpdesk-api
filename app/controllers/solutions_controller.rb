@@ -1,10 +1,17 @@
 class SolutionsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     before_action :find_solution, except: [:create, :index]
+    before_action :authorize,except: [:index]
 
     def index
         solutions = Solution.all
         render json: solutions, status: :ok 
+    end
+
+      #return loged in user's solutions
+    def mysolutions
+        solutions = Solution.where("user_id = ?", @user.id)
+        render json: solutions
     end
 
     def show 
