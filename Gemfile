@@ -24,6 +24,8 @@ gem "jwt", "~> 2.5"
 
 gem 'active_model_serializers'
 
+gem 'acts-as-taggable-on', '~> 9.0'
+
 # gem "faker", "~> 2.23"
 
 gem 'will_paginate', '~> 3.3'

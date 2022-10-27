@@ -26,6 +26,12 @@ class QuestionsController < ApplicationController
       render json: {questions: ActiveModelSerializers::SerializableResource.new(@results, each_serializer: QuestionSerializer)}, status: :ok
     end
 
+    # filter with tags
+    def filter
+      @results = Question.paginate(page: params[:page], per_page: 3)
+      @results = Question.tagged_with(params[:tags])
+      render json: {questions: ActiveModelSerializers::SerializableResource.new(@results, each_serializer: QuestionSerializer)}, status: :ok  
+    end
 
     # GET /questions/1
     def show
@@ -35,6 +41,8 @@ class QuestionsController < ApplicationController
     # POST /questions
     def create
       @question = Question.create!(question_params)
+      @question.tag_list.add(params[:tag_list])
+      @question.save
       render json: @question, status: :created, location: @question
       
     end
@@ -42,7 +50,8 @@ class QuestionsController < ApplicationController
     # PATCH/PUT /questions/1
     def update
       @question = @question.update!(question_params)
-      render json: @question
+ 
+      render json: @question, status: :accepted
    
     end
 
@@ -59,7 +68,7 @@ class QuestionsController < ApplicationController
 
       # Only allow a list of trusted parameters through.
       def question_params
-        params.require(:question).permit(:user_id, :title, :description, :votes)
+        params.require(:question).permit(:user_id, :title, :description, :votes, :tag_list)
       end
 
       def render_not_found_response
