@@ -26,10 +26,6 @@ esr =Bookmark.create(user_id:1, question_id:1)
 essr =Bookmark.create(user_id:2, question_id:3)
 essr =Bookmark.create(user_id:2, question_id:5)
 
-# puts 'seeding questions tags...'
-# tag1= QuestionsTag.create(question_id: 1, tag_id:2)
-# tag2= QuestionsTag.create(question_id: 2, tag_id:3)
-# tag3= QuestionsTag.create(question_id: 1, tag_id:1)
 
 soln1 = Solution.create(question_id: 1, user_id:2, votes: 122, description: 'Here is what you can try...')
 soln2 = Solution.create(question_id: 1, user_id:1, votes: 23, description: 'Simple try this..')
