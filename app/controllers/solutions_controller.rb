@@ -19,7 +19,7 @@ class SolutionsController < ApplicationController
     end
 
     def create 
-        solution = Solution.create!(solution_params.merge(user: @user))
+        solution = Solution.create!(solution_params)
         render json: solution, status: :created
     end
 
@@ -40,7 +40,7 @@ class SolutionsController < ApplicationController
     end
 
     def solution_params
-        params.permit(:description, :votes, :question_id)
+        params.permit(:description, :votes, :question_id, :user_id)
     end
 
     def render_not_found_response

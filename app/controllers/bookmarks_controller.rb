@@ -21,7 +21,7 @@ class BookmarksController < ApplicationController
 
   # POST /bookmarks
   def create
-    @bookmark= Bookmark.create!(bookmark_params.merge(user: @user))
+    @bookmark= Bookmark.create!(bookmark_params)
     render json: @bookmark, status: :created
   end
 
@@ -45,6 +45,6 @@ class BookmarksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bookmark_params
-      params.require(:bookmark).permit(:question_id)
+      params.require(:bookmark).permit(:question_id ,:user_id)
     end
 end
