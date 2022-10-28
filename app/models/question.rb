@@ -8,6 +8,9 @@ class Question < ApplicationRecord
 
     # add tags to question
     acts_as_taggable_on :tags
+
+    # order by created date
+    default_scope { order("created_at DESC") }
   
     
 end

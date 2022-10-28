@@ -40,7 +40,7 @@ class QuestionsController < ApplicationController
 
     # POST /questions
     def create
-      @question = Question.create!(question_params)
+      @question = Question.create!(question_params.merge(user: @user))
       @question.tag_list.add(params[:tag_list])
       @question.save
       render json: @question, status: :created, location: @question
@@ -68,7 +68,7 @@ class QuestionsController < ApplicationController
 
       # Only allow a list of trusted parameters through.
       def question_params
-        params.require(:question).permit(:user_id, :title, :description, :votes, :tag_list)
+        params.require(:question).permit( :title, :description, :votes, :tag_list)
       end
 
       def render_not_found_response
