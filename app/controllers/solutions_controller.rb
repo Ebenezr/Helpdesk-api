@@ -1,7 +1,7 @@
 class SolutionsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     before_action :find_solution, except: [:create, :index]
-    before_action :authorize,except: [:index]
+    before_action :authorize, except: [:index]
 
     def index
         solutions = Solution.all
@@ -19,7 +19,7 @@ class SolutionsController < ApplicationController
     end
 
     def create 
-        solution = Solution.create!(solution_params)
+        solution = Solution.create!(solution_params.merge(user: @user))
         render json: solution, status: :created
     end
 
@@ -40,7 +40,7 @@ class SolutionsController < ApplicationController
     end
 
     def solution_params
-        params.permit(:description, :votes, :user_id, :question_id)
+        params.permit(:description, :votes, :question_id)
     end
 
     def render_not_found_response
