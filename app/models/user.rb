@@ -2,8 +2,8 @@ class User < ApplicationRecord
   
 
     # has_many :bookmarks
-    has_many :bookmarks
-    has_many :questions, through: :bookmarks
+    has_many :bookmarks, through: :pins, dependent: :destroy
+    has_many :questions, dependent: :destroy
     has_many :tags, through: :questions_tags 
     before_validation :downcase_email
 

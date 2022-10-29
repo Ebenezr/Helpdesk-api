@@ -10,7 +10,7 @@ class SolutionsController < ApplicationController
 
       #return loged in user's solutions
     def mysolutions
-        solutions = Solution.where("user_id = ?", @user.id)
+        solutions = Solution.where("user_id = ?",  params[:id])
         render json: solutions
     end
 
@@ -20,12 +20,12 @@ class SolutionsController < ApplicationController
 
     def create 
         solution = Solution.create!(solution_params)
-        render json: solution, status: :created
+        render json: solution.question, status: :created
     end
 
     def update
         @solution.update!(solution_params)
-        render json: @solution, status: :accepted
+        render json: @solution.question, status: :accepted
     end
 
     def destroy

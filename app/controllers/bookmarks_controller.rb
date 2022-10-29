@@ -4,7 +4,9 @@ class BookmarksController < ApplicationController
 
   #return loged in user's bookmarks
   def mybookmarks
-      bookmarks = Bookmark.where("user_id = ?", @user.id)
+      bookmarks = Bookmark.where("user_id = ?", params[:id])
+      Bookmark.select(:question_id).distinct
+      # bookmarks
       render json: bookmarks
   end
 
@@ -21,8 +23,8 @@ class BookmarksController < ApplicationController
 
   # POST /bookmarks
   def create
-    @bookmark= Bookmark.create!(bookmark_params)
-    render json: @bookmark, status: :created
+      @bookmark= Bookmark.create!(bookmark_params)
+      render json: @bookmark, status: :created
   end
 
   # PATCH/PUT /bookmarks/1
@@ -45,6 +47,6 @@ class BookmarksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bookmark_params
-      params.require(:bookmark).permit(:question_id ,:user_id)
+      params.permit(:question_id ,:user_id)
     end
 end

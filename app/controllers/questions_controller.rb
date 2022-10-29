@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
 
       #return loged in user's questions
       def myquestions
-          questions = Question.where("user_id = ?", @user.id)
+          questions = Question.where("user_id = ?",  params[:id])
           render json: questions
       end
 
@@ -33,6 +33,12 @@ class QuestionsController < ApplicationController
       render json: {questions: ActiveModelSerializers::SerializableResource.new(@results, each_serializer: QuestionSerializer)}, status: :ok  
     end
 
+    # returns frequently asked questions(by votes)
+    def faqs
+        @results = Question.where("votes > ?", 20)
+        render json: @results
+    end
+
     # GET /questions/1
     def show
       render json: @question
@@ -49,7 +55,7 @@ class QuestionsController < ApplicationController
 
     # PATCH/PUT /questions/1
     def update
-      @question = @question.update!(question_params)
+      @question.update!(question_params)
  
       render json: @question, status: :accepted
    
