@@ -2,15 +2,7 @@ puts 'seeding users'
 
 user1 = User.create(first_name: 'John', last_name: 'Doe', email: 'john@example.com', password: '123456', username: 'Jonnie')
 user1 = User.create(first_name: 'Alice', last_name: 'Auko', email: 'alice@example.com', password: '123456', username: 'Alice')
-
-# puts "Creating tags..."
-# code = Tag.create(name:'student account')
-# canva = Tag.create(name:'canva')
-# programmer = Tag.create(name:'heroku')
-# developer = Tag.create(name:'ruby on rails')
-# technology= Tag.create(name:'react,js')
-# ccs3 = Tag.create(name:'space')
-# angular = Tag.create(name:'angular.js')
+user1 = User.create(first_name: 'Ebenezar', last_name: 'Bukosia', email: 'ebenezar@example.com', password: '123456', username: 'ebbe')
 
 puts 'seeding questions'
 quiz1 = Question.create(title: "How to enable two step auth", description: "I am logged out of canva and i'm requred to enable two step authentification, any help ", user_id: 2, votes:0)
