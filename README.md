@@ -27,12 +27,19 @@
 ## Technologies
 
 --- Ruby on Rails
+
 --- HTML and CSS
+
 --- JavaScript (React)
+
 --- PostgreSQL
+
 --- Heroku (deployment)
+
 --- Git and GitHub (version control)
+
 --- Minitest (testing)
+
 --- Jest (testing)
 
 ### Features
