@@ -42,6 +42,8 @@
 
 --- Jest (testing)
 
+---
+
 ## Features
 
 --- The features of a HelpDesk web application that allows students to post questions and provide solutions to other questions are as follows:
