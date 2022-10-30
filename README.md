@@ -1,6 +1,6 @@
 # Help Desk
 
-### Authors
+## Authors
 
     Cecilia Anyega
     Allan Ngoma
@@ -42,7 +42,7 @@
 
 --- Jest (testing)
 
-### Features
+## Features
 
 --- The features of a HelpDesk web application that allows students to post questions and provide solutions to other questions are as follows:
 
@@ -54,7 +54,7 @@
 
 -- The application allows students to comment on questions and solutions, providing a way for the community to provide feedback.
 
-### description
+## description
 
 --- The HelpDesk web application is a great way for students to get help with their studies.
 
@@ -94,7 +94,7 @@ rails db:migrate
 
 rails server
 
-### Requirements
+## Requirements
 
 --- the following are the requirements for the project
 
@@ -104,14 +104,14 @@ rails server
 
 -- PostgreSQL 9.5 or later.
 
-### Dependencies
+## Dependencies
 
 --- To install the dependencies defined in the Gemfile, run the following command:
 
 -- bundle install
 
 
-### Database Setup
+## Database Setup
 
 --- To create the database, run the following command:
 
@@ -126,7 +126,7 @@ rails server
 --  rails db:seed
 
 
-#### Client (React)
+## Client (React)
 
 --- First clone the frontend repository from {provide link to frontend repo}.
 
@@ -135,11 +135,11 @@ rails server
 --- Start the frontend server by running the following command: `npm start`.
 
 
-#### API (Ruby on Rails)
+## API (Ruby on Rails)
 
 --- For the backend, follow the steps defined in the How to set up and run the project section above.
 
-#### How to use the project
+## How to use the project
 
 --- To use the project follow the steps below:
 
@@ -155,7 +155,7 @@ rails server
 
 -- You can also search for a question.
 
-### Contributing to project
+## Contributing to project
 
 --- The authors of this project are open to contributions. If you would like to contribute to this project, please follow the steps below:
 
