@@ -39,21 +39,25 @@
 
 --- The features of a HelpDesk web application that allows students to post questions and provide solutions to other questions are as follows:
 
--The application allows students to post questions and provide solutions to other questions in a forum-like setting.
+-- The application allows students to post questions and provide solutions to other questions in a forum-like setting.
 
--The application includes a search function that allows students to search for specific questions or topics.
+-- The application includes a search function that allows students to search for specific questions or topics.
 
--The application allows students to up-vote or down-vote questions and solutions, providing a way for the community to rate the usefulness of questions and solutions.
+-- The application allows students to up-vote or down-vote questions and solutions, providing a way for the community to rate the usefulness of questions and solutions.
 
--The application allows students to comment on questions and solutions, providing a way for the community to provide feedback.
+-- The application allows students to comment on questions and solutions, providing a way for the community to provide feedback.
 
 ### description
 
---- The HelpDesk web application is a great way for students to get help with their studies. 
--By posting questions and providing solutions to other questions, students can help each other out and learn from each other.
--This application is a great resource for students who are struggling with a particular subject. 
--By being able to see what other students are asking, they can get a better understanding of the material. 
--Additionally, by providing solutions to other students' questions, they can deepen their own understanding of the subject matter.
+--- The HelpDesk web application is a great way for students to get help with their studies.
+
+-- By posting questions and providing solutions to other questions, students can help each other out and learn from each other.
+
+-- This application is a great resource for students who are struggling with a particular subject.
+
+-- By being able to see what other students are asking, they can get a better understanding of the material.
+
+-- Additionally, by providing solutions to other students' questions, they can deepen their own understanding of the subject matter.
 
 ## How to set up and run the project
 
@@ -86,13 +90,16 @@ rails server
 ### Requirements
 
 --- the following are the requirements for the project
--Ruby 2.3.3 or later
--Rails 5.0 or later
--PostgreSQL 9.5 or later
+
+-- Ruby 2.3.3 or later.
+
+-- Rails 5.0 or later.
+
+-- PostgreSQL 9.5 or later.
 
 ### Dependencies
 
---- To install the dependencies defined in the Gemfile, run the following command: 
+--- To install the dependencies defined in the Gemfile, run the following command:
 
 -- bundle install
 
@@ -100,45 +107,64 @@ rails server
 ### Database Setup
 
 --- To create the database, run the following command:
---- rails db:create
+
+-- rails db:create
+
 --- To run the migrations, run the following command:
---- rails db:migrate
+
+-- rails db:migrate
+
 --- To seed the database, run the following command:
---- rails db:seed
+
+--  rails db:seed
 
 
 #### Client (React)
 
---- First clone the frontend repository from ,
---- Navigate to the frontend directory and install the dependencies by running the following command: `npm install`
---- Start the frontend server by running the following command: `npm start`
+--- First clone the frontend repository from {provide link to frontend repo}.
+
+--- Navigate to the frontend directory and install the dependencies by running the following command: `npm install`.
+
+--- Start the frontend server by running the following command: `npm start`.
 
 
 #### API (Ruby on Rails)
 
---- For the backend, follow the stepd]s defined in the How to set up and run the project section above.
+--- For the backend, follow the steps defined in the How to set up and run the project section above.
 
-## How to use the project
+#### How to use the project
 
 --- To use the project follow the steps below:
---- First sign up to the application
---- Then you can post a question
---- You can also give a solution to a question
---- You can also comment on a question  
---- You can also up-vote or down-vote a question
---- You can also search for a question
----
+
+-- First sign up to the application.
+
+-- Then you can post a question.
+
+-- You can also give a solution to a question.
+
+-- You can also comment on a question.
+
+-- You can also up-vote or down-vote a question.
+
+-- You can also search for a question.
 
 ### Contributing to project
 
 --- The authors of this project are open to contributions. If you would like to contribute to this project, please follow the steps below:
---- Fork the repository
---- Create a new branch (git checkout -b improve-feature)
---- Make the appropriate changes in the files
---- Add changes to reflect the changes made
---- Commit your changes (git commit -am 'Improve feature')
---- Push to the branch (git push origin improve-feature)
---- Create a Pull Request
+
+-- Fork the repository.
+
+-- Create a new branch (git checkout -b improve-feature).
+
+-- Make the appropriate changes in the files.
+
+-- Add changes to reflect the changes made.
+
+-- Commit your changes (git commit -am 'Improve feature').
+
+-- Push to the branch (git push origin improve-feature).
+
+-- Create a Pull Request.
 
 ## Copyright
 
