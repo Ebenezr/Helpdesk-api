@@ -56,6 +56,8 @@
 
 -- The application allows students to comment on questions and solutions, providing a way for the community to provide feedback.
 
+---
+
 ## description
 
 --- The HelpDesk web application is a great way for students to get help with their studies.
@@ -67,6 +69,8 @@
 -- By being able to see what other students are asking, they can get a better understanding of the material.
 
 -- Additionally, by providing solutions to other students' questions, they can deepen their own understanding of the subject matter.
+
+---
 
 ## How to set up and run the project
 
@@ -96,6 +100,8 @@ rails db:migrate
 
 rails server
 
+---
+
 ## Requirements
 
 --- the following are the requirements for the project
@@ -106,12 +112,14 @@ rails server
 
 -- PostgreSQL 9.5 or later.
 
+---
 ## Dependencies
 
 --- To install the dependencies defined in the Gemfile, run the following command:
 
 -- bundle install
 
+---
 
 ## Database Setup
 
@@ -127,6 +135,7 @@ rails server
 
 --  rails db:seed
 
+---
 
 ## Client (React)
 
@@ -136,10 +145,13 @@ rails server
 
 --- Start the frontend server by running the following command: `npm start`.
 
+---
 
 ## API (Ruby on Rails)
 
 --- For the backend, follow the steps defined in the How to set up and run the project section above.
+
+---
 
 ## How to use the project
 
@@ -156,6 +168,8 @@ rails server
 -- You can also up-vote or down-vote a question.
 
 -- You can also search for a question.
+
+---
 
 ## Contributing to project
 
@@ -175,9 +189,13 @@ rails server
 
 -- Create a Pull Request.
 
+---
+
 ## Copyright
 
---- This project is licensed under the MIT License - see the LICENSE.md file for details
+--- This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+---
 
 ## [License](LICENSE)
 
