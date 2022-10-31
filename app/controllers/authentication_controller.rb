@@ -1,16 +1,8 @@
 class AuthenticationController < ApplicationController
     # before_action :authorize_request, except: :login
 
+    # Login action
     def login
-      # @user = User.find_by_username(params[:username])
-      # if @user && @user.authenticate(params[:password])
-      #       token = JsonWebToken.encode(user_id: @user.id)
-      #       time = Time.now + 24.hours.to_i
-      #       render json: { token: token, exp: time.strftime("%m-%d-%Y %H:%M"),
-      #                username: @user.username, email: @user.email}, status: :ok
-      # else
-      #   render json: { error: 'Username or password invalid' }, status: :unauthorized
-      # end
           @user = User.find_by_username(user_params[:username]) 
 
         if @user && @user.authenticate(user_params[:password])
@@ -21,10 +13,23 @@ class AuthenticationController < ApplicationController
         end    
     end
 
+      # actions to help user reset password
+  def resetpassword
+        @user = User.find_by_email(user_params_reset[:email]) 
+
+        if @user && @user.update!(user_params_reset)
+            render json: @user, status: :ok
+        else
+            render json: {error:"Account not found! try creating new one"}, status: :not_found
+        end    
+  end
+
   private
 
   def user_params
-    params.permit(:username, :password)
+    params.permit(:email,:username, :password)
   end
+
+  
 
 end

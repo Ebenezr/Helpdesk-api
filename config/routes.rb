@@ -12,6 +12,11 @@ Rails.application.routes.draw do
    #search for questions
    get '/search/:search_term', to: "questions#search"
    get '/filter/:tags', to: "questions#filter"
-      get '/faqs', to: "questions#faqs"
+   
+   #get frequently asked questions
+   get '/faqs', to: "questions#faqs"
+
+   # reset password
+   get '/passwordreset/:email', to: "users#resetpassword"   
 
 end

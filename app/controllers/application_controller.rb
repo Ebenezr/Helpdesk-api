@@ -6,6 +6,7 @@ class ApplicationController < ActionController::API
         render json: {error: 'not_found'}
     end
     
+    # Application controller
     def encode_token(payload)
         JWT.encode(payload, 'secret')
      end
