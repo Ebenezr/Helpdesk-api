@@ -1,3 +1,4 @@
+  class UsersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     before_action :authorize, only: [:show,:index,:update,:destroy]
     before_action :find_user, except: [:create, :index]
