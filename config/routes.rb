@@ -17,9 +17,7 @@ Rails.application.routes.draw do
    #get frequently asked questions
    get '/faqs', to: "questions#faqs"
 
-   # reset password
-   post '/passwordreset/:email', to: "authentication#resetpassword"   
-
+ 
    #get notifications
    get 'notifications', to: "users#notifications"
 

@@ -13,16 +13,6 @@ class AuthenticationController < ApplicationController
         end    
     end
 
-      # actions to help user reset password
-  def resetpassword
-        @user = User.find_by_email(user_params_reset[:email]) 
-
-        if @user && @user.update!(user_params_reset)
-            render json: @user, status: :ok
-        else
-            render json: {error:"Account not found! try creating new one"}, status: :not_found
-        end    
-  end
 
   private
 

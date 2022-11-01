@@ -1,5 +1,6 @@
 class PasswordsController < ApplicationController
 
+    # find user on db then asigns a token
     def forgot
         if params[:email].blank? # check if email is present
             return render json: {error: 'Email not present'}
@@ -16,6 +17,7 @@ class PasswordsController < ApplicationController
         end
     end
 
+    # if correct token is passed password is reset
     def reset
         token = params[:token].to_s
 
