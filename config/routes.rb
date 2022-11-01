@@ -23,4 +23,8 @@ Rails.application.routes.draw do
    #get notifications
    get 'notifications', to: "users#notifications"
 
+   # password reset
+   post 'password/forgot', to: 'passwords#forgot'
+   post 'password/reset', to: 'passwords#reset'
+
 end
