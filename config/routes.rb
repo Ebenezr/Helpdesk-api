@@ -3,6 +3,7 @@ Rails.application.routes.draw do
    resources :questions, only: [:index, :show, :create, :update, :destroy]
    resources :users, only: [:index, :show, :create, :update, :destroy] 
    resources :solutions, only: [:index, :show, :create, :update, :destroy]
+   resources :notifications, only: [:index, :destroy]
    post '/auth/login', to: 'authentication#login' 
   #  return loged in users bookmarks
    get '/mybookmarks/:id', to: "bookmarks#mybookmarks"
@@ -17,6 +18,9 @@ Rails.application.routes.draw do
    get '/faqs', to: "questions#faqs"
 
    # reset password
-   patch '/passwordreset/:email', to: "users#resetpassword"   
+   post '/passwordreset/:email', to: "users#resetpassword"   
+
+   #get notifications
+   get 'notifications', to: "users#notifications"
 
 end

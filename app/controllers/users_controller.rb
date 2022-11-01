@@ -32,6 +32,7 @@
         render json: {error:"Account not found! try creating new one"}, status: :not_found
     end    
   end
+  
 
 
   def update

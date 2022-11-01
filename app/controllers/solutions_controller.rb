@@ -33,6 +33,8 @@ class SolutionsController < ApplicationController
         head :no_content
     end
 
+   
+
     private 
 
     def find_solution
