@@ -13,10 +13,10 @@ class QuestionsController < ApplicationController
     end
 
       #return loged in user's questions
-      def myquestions
-          questions = Question.where("user_id = ?",  params[:id])
-          render json: questions
-      end
+    def myquestions
+        questions = Question.where("user_id = ?",  params[:id])
+        render json: questions
+    end
 
     #search for questions
     def search

@@ -6,7 +6,7 @@ class NotificationsController < ApplicationController
 
     # a notification can be deleted and a user can mark the notification as read:
     def index
-        @notifications = current_user.notifications
+        @notifications = @user.notifications
         @notifications.each do |notification|
         notification.update_attribute(:checked, true)
      end
