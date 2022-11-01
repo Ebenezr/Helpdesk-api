@@ -5,9 +5,11 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
     #   assert true
     # end
 
-    setup do
-        @question = questions(:one)
-    end
+    # setup do
+    #     @question = questions(:one)
+    # end
+
+
 
     test "should get index" do
         get questions_url, as: :json

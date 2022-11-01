@@ -1,6 +1,7 @@
 class Question < ApplicationRecord
 
     belongs_to :user
+    has_many :notifications
     has_many :solutions, dependent: :destroy
     has_many :bookmarks, dependent: :destroy
     has_many :users, through: :bookmarks
