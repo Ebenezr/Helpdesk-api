@@ -14,6 +14,14 @@
     render json: @user, status: :ok
   end
 
+  # returns user notifications
+  def my_notifications
+    @user = User.find(params[:id])
+    @notice = @user.solution_notifications
+    @count =  @user.solution_notifications.count
+    render json: {notification: ActiveModelSerializers::SerializableResource.new(@notice, each_serializer: SolutionNotificationSerializer), count:@count}, status: :ok
+  end
+
   # Registration action
   def create
     @user = User.create!(user_params)

@@ -19,8 +19,9 @@ class SolutionsController < ApplicationController
     end
 
     def create 
-        solution = Solution.create!(solution_params)
-        render json: solution.question, status: :created
+        @solution = Solution.create!(solution_params)
+        # @notification = SolutionNotification.create!(notify_params) 
+        render json: @solution.question, status: :created
     end
 
     def update
@@ -43,6 +44,10 @@ class SolutionsController < ApplicationController
 
     def solution_params
         params.permit(:description, :votes, :question_id, :user_id)
+    end
+
+    def notify_params
+        params.permit(:question_id, :user_id)
     end
 
     def render_not_found_response
