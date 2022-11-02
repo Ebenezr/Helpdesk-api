@@ -10,6 +10,7 @@ class Solution < ApplicationRecord
     after_create :create_notification
 
 private
+# create users notifications after posting a solution
     def create_notification
         self.solution_notifications.create(
           solution: self,
