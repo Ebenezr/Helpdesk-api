@@ -5,8 +5,10 @@ class User < ApplicationRecord
     has_many :bookmarks, through: :pins, dependent: :destroy
     has_many :questions, dependent: :destroy
     has_many :tags, through: :questions_tags 
-    has_many :solutions, through: :questions,dependent: :destroy 
+    has_many :solutions, through: :questions, dependent: :destroy 
+    has_many :solution_notifications, dependent: :destroy 
     before_validation :downcase_email
+
 
     def downcase_email
         email.try(:downcase!)

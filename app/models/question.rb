@@ -5,6 +5,7 @@ class Question < ApplicationRecord
     has_many :solutions, dependent: :destroy
     has_many :bookmarks, dependent: :destroy
     has_many :users, through: :bookmarks
+    has_many :solution_notifications, dependent: :destroy 
     validates :user_id,:title,:description, presence: true
 
     # add tags to question

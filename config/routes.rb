@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :solution_notifications
    resources :bookmarks,  only: [:create, :update, :destroy]
    resources :questions, only: [:index, :show, :create, :update, :destroy]
    resources :users, only: [:index, :show, :create, :update, :destroy] 
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
    
    #get frequently asked questions
    get '/faqs', to: "questions#faqs"
-
+   get '/mynotifications/:id', to: "users#my_notifications"
  
    #get notifications
    get 'notifications', to: "users#notifications"
